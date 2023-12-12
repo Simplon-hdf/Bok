@@ -3,7 +3,7 @@ import { HumanInformationsService } from './human-informations.service';
 import { HumanInformationsController } from './human-informations.controller';
 
 @Module({
-  controllers: [HumanInformationsController],
-  providers: [HumanInformationsService],
+    controllers: [HumanInformationsController],
+    providers: [HumanInformationsService],
 })
 export class HumanInformationsModule {}
