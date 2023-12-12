@@ -72,13 +72,4 @@ export class EmployeesService {
             },
         });
     }
-    // public async deleteEmployeeByMail(mail_address: string) {
-    //   return this.prisma.employees.delete({
-    //     where: {
-    //       mail_address: mail_address,
-    //     },
-    //   });
-    // }
-
-    // public async
 }
