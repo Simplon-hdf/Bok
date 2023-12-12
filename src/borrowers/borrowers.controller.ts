@@ -22,24 +22,24 @@ export class BorrowersController {
 
     @Get()
     findAll() {
-        return this.borrowersService.findAll();
+        return this.borrowersService.findAllBorrowers();
     }
 
-    @Get(':id')
-    findOne(@Param('id') id: string) {
-        return this.borrowersService.findOne(+id);
+    @Get(':uuid')
+    findOne(@Param('uuid') uuid: string) {
+        return this.borrowersService.findOneByMail(uuid);
     }
 
-    @Patch(':id')
+    @Patch(':uuid')
     update(
-        @Param('id') id: string,
+        @Param('uuid') uuid: string,
         @Body() updateBorrowerDto: UpdateBorrowerDto,
     ) {
-        return this.borrowersService.update(+id, updateBorrowerDto);
+        return this.borrowersService.update(uuid, updateBorrowerDto);
     }
 
-    @Delete(':id')
-    remove(@Param('id') id: string) {
-        return this.borrowersService.remove(+id);
+    @Delete(':uuid')
+    remove(@Param('uuid') uuid: string) {
+        return this.borrowersService.delete(uuid);
     }
 }
