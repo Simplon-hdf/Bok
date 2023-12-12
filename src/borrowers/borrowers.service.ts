@@ -4,23 +4,23 @@ import { UpdateBorrowerDto } from './dto/update-borrower.dto';
 
 @Injectable()
 export class BorrowersService {
-  create(createBorrowerDto: CreateBorrowerDto) {
-    return 'This action adds a new borrower';
-  }
+    create(createBorrowerDto: CreateBorrowerDto) {
+        return 'This action adds a new borrower';
+    }
 
-  findAll() {
-    return `This action returns all borrowers`;
-  }
+    findAll() {
+        return `This action returns all borrowers`;
+    }
 
-  findOne(id: number) {
-    return `This action returns a #${id} borrower`;
-  }
+    findOne(id: number) {
+        return `This action returns a #${id} borrower`;
+    }
 
-  update(id: number, updateBorrowerDto: UpdateBorrowerDto) {
-    return `This action updates a #${id} borrower`;
-  }
+    update(id: number, updateBorrowerDto: UpdateBorrowerDto) {
+        return `This action updates a #${id} borrower`;
+    }
 
-  remove(id: number) {
-    return `This action removes a #${id} borrower`;
-  }
+    remove(id: number) {
+        return `This action removes a #${id} borrower`;
+    }
 }
