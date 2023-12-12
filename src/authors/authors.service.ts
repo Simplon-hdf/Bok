@@ -7,8 +7,8 @@ import { PrismaService } from 'src/prisma.service';
 export class AuthorsService {
     constructor(private readonly prisma: PrismaService) {}
 
-    create(createAuthorDto: CreateAuthorDto) {
-        const author = this.prisma.authors.create({
+    async create(createAuthorDto: CreateAuthorDto) {
+        const author = await this.prisma.authors.create({
             data: {
                 Human_Informations: {
                     create: {
@@ -22,8 +22,8 @@ export class AuthorsService {
         return author;
     }
 
-    findAll() {
-        const authors = this.prisma.authors.findMany({
+    async findAll() {
+        const authors = await this.prisma.authors.findMany({
             include: {
                 Human_Informations: true,
             },
@@ -32,8 +32,8 @@ export class AuthorsService {
         return authors;
     }
 
-    getByUUID(uuid: string) {
-        const author = this.prisma.authors.findUnique({
+    async getByUUID(uuid: string) {
+        const author = await this.prisma.authors.findUnique({
             where: {
                 UUID: uuid,
             },
@@ -45,8 +45,8 @@ export class AuthorsService {
         return author;
     }
 
-    getBooksByAuthorUUID(uuid: string) {
-        const books = this.prisma.books.findMany({
+    async getBooksByAuthorUUID(uuid: string) {
+        const books = await this.prisma.books.findMany({
             where: {
                 authors_UUID: uuid,
             },
@@ -55,8 +55,8 @@ export class AuthorsService {
         return books;
     }
 
-    update(uuid: string, updateAuthorDto: UpdateAuthorDto) {
-        const author = this.prisma.authors.update({
+    async update(uuid: string, updateAuthorDto: UpdateAuthorDto) {
+        const author = await this.prisma.authors.update({
             data: {
                 Human_Informations: {
                     update: {
@@ -73,8 +73,8 @@ export class AuthorsService {
         return author;
     }
 
-    delete(uuid: string) {
-        const author = this.prisma.authors.delete({
+    async delete(uuid: string) {
+        const author = await this.prisma.authors.delete({
             where: {
                 UUID: uuid,
             },
