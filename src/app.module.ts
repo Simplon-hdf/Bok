@@ -9,15 +9,15 @@ import { BorrowsModule } from './borrows/borrows.module';
 import { AuthorsModule } from './authors/authors.module';
 
 @Module({
-  imports: [
-    HumanInformationsModule,
-    BorrowersModule,
-    EmployeesModule,
-    BooksModule,
-    BorrowsModule,
-    AuthorsModule,
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+        HumanInformationsModule,
+        BorrowersModule,
+        EmployeesModule,
+        BooksModule,
+        BorrowsModule,
+        AuthorsModule,
+    ],
+    controllers: [AppController],
+    providers: [AppService],
 })
 export class AppModule {}
