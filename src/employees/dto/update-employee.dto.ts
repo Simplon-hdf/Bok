@@ -1,4 +1,10 @@
-import { PartialType } from '@nestjs/swagger';
+import { IsOptional } from 'class-validator';
 import { CreateEmployeeDto } from './create-employee.dto';
+import { PartialType } from '@nestjs/mapped-types';
+export class UpdateEmployeeDto extends PartialType(CreateEmployeeDto) {
+  @IsOptional()
+  mail_address?: string;
 
-export class UpdateEmployeeDto extends PartialType(CreateEmployeeDto) {}
+  @IsOptional()
+  password?: string;
+}
