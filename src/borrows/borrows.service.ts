@@ -1,26 +1,50 @@
 import { Injectable } from '@nestjs/common';
 import { CreateBorrowDto } from './dto/create-borrow.dto';
 import { UpdateBorrowDto } from './dto/update-borrow.dto';
+import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class BorrowsService {
-  create(createBorrowDto: CreateBorrowDto) {
-    return 'This action adds a new borrow';
-  }
+    constructor(private readonly prisma: PrismaService) {}
 
-  findAll() {
-    return `This action returns all borrows`;
-  }
+    public async create(createBorrowDto: CreateBorrowDto) {
+        const End_At = new Date();
+        End_At.setDate(End_At.getDate() + 14);
 
-  findOne(id: number) {
-    return `This action returns a #${id} borrow`;
-  }
+        const createBorrow = await this.prisma.borrows.create({
+            data: {
+                borrower: {
+                    connect: {
+                        UUID: createBorrowDto.borrowers_UUID,
+                    },
+                },
+                employee: {
+                    connect: {
+                        UUID: createBorrowDto.employees_UUID,
+                    },
+                },
 
-  update(id: number, updateBorrowDto: UpdateBorrowDto) {
-    return `This action updates a #${id} borrow`;
-  }
+                status: createBorrowDto.status,
+                started_at: new Date(),
+                end_at: End_At,
+            },
+        });
+        return createBorrow;
+    }
 
-  remove(id: number) {
-    return `This action removes a #${id} borrow`;
-  }
+    findAll() {
+        return `This action returns all borrows`;
+    }
+
+    public async getByUUID(uuid: string) {
+        return `This action returns a #${uuid} borrow`;
+    }
+
+    updateByUUID(uuid: string, updateBorrowDto: UpdateBorrowDto) {
+        return `This action updates a #${uuid} borrow`;
+    }
+
+    deletebyUUID(uuid: string) {
+        return `This action removes a #${uuid} borrow`;
+    }
 }

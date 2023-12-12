@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { BorrowState } from '@prisma/client';
-import { IsDate, IsEnum, IsNotEmpty, IsString } from 'class-validator';
+import { IsDate, IsEnum, IsNotEmpty, IsString, IsUUID } from 'class-validator';
 
 export class CreateBorrowDto {
     @ApiProperty({
@@ -23,4 +23,18 @@ export class CreateBorrowDto {
     @IsNotEmpty()
     @IsEnum(BorrowState)
     status: BorrowState;
+
+    @ApiProperty({
+        description: 'this field represents the employee uuid',
+    })
+    @IsUUID()
+    @IsNotEmpty()
+    employees_UUID: string;
+
+    @ApiProperty({
+        description: 'this field represents the borrower uuid',
+    })
+    @IsUUID()
+    @IsNotEmpty()
+    borrowers_UUID: string;
 }
