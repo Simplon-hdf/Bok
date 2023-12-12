@@ -8,8 +8,6 @@ import {
     Delete,
 } from '@nestjs/common';
 import { HumanInformationsService } from './human-informations.service';
-import { CreateHumanInformationDto } from './dto/create-human-information.dto';
-import { UpdateHumanInformationDto } from './dto/update-human-information.dto';
 
 @Controller('human-informations')
 export class HumanInformationsController {

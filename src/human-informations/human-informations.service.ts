@@ -1,6 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { CreateHumanInformationDto } from './dto/create-human-information.dto';
-import { UpdateHumanInformationDto } from './dto/update-human-information.dto';
 
 @Injectable()
 export class HumanInformationsService {
