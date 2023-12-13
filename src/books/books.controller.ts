@@ -20,7 +20,7 @@ export class BooksController {
         return this.booksService.create(createBookDto);
     }
 
-    @Get('list')
+    @Get()
     findAll() {
         return this.booksService.findAll();
     }

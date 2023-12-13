@@ -19,8 +19,8 @@ export class BooksService {
         });
     }
 
-    findAll() {
-        return `This action returns all books`;
+    public async findAll() {
+        return await this.prisma.books.findMany();
     }
 
     public async getByUUID(uuid: string) {
@@ -35,9 +35,11 @@ export class BooksService {
             data: {
                 name: updateBookDto.book_name,
                 description: updateBookDto.description,
-                author: {
-                    connect: { UUID: updateBookDto.authors_UUID },
-                },
+                author: updateBookDto.authors_UUID
+                    ? {
+                          connect: { UUID: updateBookDto.authors_UUID },
+                      }
+                    : undefined,
             },
         });
     }
