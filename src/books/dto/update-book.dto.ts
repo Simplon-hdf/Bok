@@ -9,6 +9,4 @@ export class UpdateBookDto extends PartialType(CreateBookDto) {
     description?: string;
     @IsOptional()
     authors_UUID?: string;
-    @IsOptional()
-    borrow_UUID?: string;
 }

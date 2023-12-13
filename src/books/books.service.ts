@@ -15,9 +15,6 @@ export class BooksService {
                 author: {
                     connect: { UUID: createBookDto.authors_UUID },
                 },
-                borrow: {
-                    connect: { UUID: createBookDto.borrow_UUID },
-                },
             },
         });
     }
@@ -40,9 +37,6 @@ export class BooksService {
                 description: updateBookDto.description,
                 author: {
                     connect: { UUID: updateBookDto.authors_UUID },
-                },
-                borrow: {
-                    connect: { UUID: updateBookDto.borrow_UUID },
                 },
             },
         });
