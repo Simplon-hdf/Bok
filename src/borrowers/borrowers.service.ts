@@ -21,15 +21,27 @@ export class BorrowersService {
     }
 
     public async findAllBorrowers() {
-        return this.prisma.borrowers.findMany();
+        return await this.prisma.borrowers.findMany();
     }
 
     public async findAllBorrowersAndBooks() {
-        //Stand-by waiting for books and borrows ressources   return
+        return await this.prisma.borrowers.findMany({
+            include: {
+                borrow: {
+                    include: {
+                        Books: {
+                            select: {
+                                name: true,
+                            },
+                        },
+                    },
+                },
+            },
+        });
     }
 
-    public async findOneByMail(uuid: string) {
-        return this.prisma.borrowers.findUnique({
+    public async findOneByUUID(uuid: string) {
+        return await this.prisma.borrowers.findUnique({
             where: {
                 UUID: uuid,
             },
@@ -37,7 +49,7 @@ export class BorrowersService {
     }
 
     public async update(uuid: string, updateBorrowerDto: UpdateBorrowerDto) {
-        return this.prisma.borrowers.update({
+        return await this.prisma.borrowers.update({
             where: {
                 UUID: uuid,
             },
@@ -53,13 +65,7 @@ export class BorrowersService {
     }
 
     public async delete(Human_Informations_uuid) {
-        await this.prisma.humanInformations.delete({
-            where: {
-                UUID: Human_Informations_uuid,
-            },
-        });
-
-        await this.prisma.borrowers.delete({
+        return await this.prisma.borrowers.delete({
             where: {
                 UUID: Human_Informations_uuid,
             },

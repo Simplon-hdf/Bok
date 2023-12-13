@@ -27,7 +27,7 @@ export class BorrowersController {
 
     @Get(':uuid')
     findOne(@Param('uuid') uuid: string) {
-        return this.borrowersService.findOneByMail(uuid);
+        return this.borrowersService.findOneByUUID(uuid);
     }
 
     @Patch(':uuid')
