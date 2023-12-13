@@ -11,7 +11,6 @@ import { AuthorsService } from './authors.service';
 import { CreateAuthorDto } from './dto/create-author.dto';
 import { UpdateAuthorDto } from './dto/update-author.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { CustomResponseMessage } from 'response-normalizer';
 
 @Controller('authors')
 @ApiTags('Authors')
