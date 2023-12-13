@@ -25,18 +25,18 @@ export class BooksController {
         return this.booksService.findAll();
     }
 
-    @Get(':id')
-    findOne(@Param('id') id: string) {
-        return this.booksService.findOne(+id);
+    @Get(':uuid')
+    findUnique(@Param('uuid') id: string) {
+        return this.booksService.getByUUID(id);
     }
 
-    @Patch(':id')
+    @Patch(':uuid')
     update(@Param('id') id: string, @Body() updateBookDto: UpdateBookDto) {
-        return this.booksService.update(+id, updateBookDto);
+        return this.booksService.updateByUUID(id, updateBookDto);
     }
 
-    @Delete(':id')
+    @Delete(':uuid')
     remove(@Param('id') id: string) {
-        return this.booksService.remove(+id);
+        return this.booksService.delete(+id);
     }
 }
