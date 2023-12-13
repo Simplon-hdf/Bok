@@ -1,26 +1,52 @@
 import { Injectable } from '@nestjs/common';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
+import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class BooksService {
-    create(createBookDto: CreateBookDto) {
-        return 'This action adds a new book';
+    constructor(private readonly prisma: PrismaService) {}
+
+    public async create(createBookDto: CreateBookDto) {
+        return await this.prisma.books.create({
+            data: {
+                name: createBookDto.book_name,
+                description: createBookDto.description,
+                author: {
+                    connect: { UUID: createBookDto.authors_UUID },
+                },
+            },
+        });
     }
 
-    findAll() {
-        return `This action returns all books`;
+    public async findAll() {
+        return await this.prisma.books.findMany();
     }
 
-    findOne(id: number) {
-        return `This action returns a #${id} book`;
+    public async getByUUID(uuid: string) {
+        return await this.prisma.books.findUnique({
+            where: { UUID: uuid },
+        });
     }
 
-    update(id: number, updateBookDto: UpdateBookDto) {
-        return `This action updates a #${id} book`;
+    public async updateByUUID(uuid: string, updateBookDto: UpdateBookDto) {
+        return await this.prisma.books.update({
+            where: { UUID: uuid },
+            data: {
+                name: updateBookDto.book_name,
+                description: updateBookDto.description,
+                author: updateBookDto.authors_UUID
+                    ? {
+                          connect: { UUID: updateBookDto.authors_UUID },
+                      }
+                    : undefined,
+            },
+        });
     }
 
-    remove(id: number) {
-        return `This action removes a #${id} book`;
+    public async deleteByUUID(uuid: string) {
+        return await this.prisma.books.delete({
+            where: { UUID: uuid },
+        });
     }
 }

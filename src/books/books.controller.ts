@@ -24,19 +24,20 @@ export class BooksController {
     findAll() {
         return this.booksService.findAll();
     }
+    // TODO: rajouter status du livre
 
-    @Get(':id')
-    findOne(@Param('id') id: string) {
-        return this.booksService.findOne(+id);
+    @Get(':uuid')
+    getByUUID(@Param('uuid') uuid: string) {
+        return this.booksService.getByUUID(uuid);
     }
 
-    @Patch(':id')
-    update(@Param('id') id: string, @Body() updateBookDto: UpdateBookDto) {
-        return this.booksService.update(+id, updateBookDto);
+    @Patch(':uuid')
+    update(@Param('uuid') uuid: string, @Body() updateBookDto: UpdateBookDto) {
+        return this.booksService.updateByUUID(uuid, updateBookDto);
     }
 
-    @Delete(':id')
-    remove(@Param('id') id: string) {
-        return this.booksService.remove(+id);
+    @Delete(':uuid')
+    deleteByUUID(@Param('uuid') uuid: string) {
+        return this.booksService.deleteByUUID(uuid);
     }
 }
