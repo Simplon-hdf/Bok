@@ -32,11 +32,25 @@ export class BooksService {
         });
     }
 
-    public async updateByUUID(uuid: number, updateBookDto: UpdateBookDto) {
-        return `This action updates a #${id} book`;
+    public async updateByUUID(uuid: string, updateBookDto: UpdateBookDto) {
+        return await this.prisma.books.update({
+            where: { UUID: uuid },
+            data: {
+                name: updateBookDto.book_name,
+                description: updateBookDto.description,
+                author: {
+                    connect: { UUID: updateBookDto.authors_UUID },
+                },
+                borrow: {
+                    connect: { UUID: updateBookDto.borrow_UUID },
+                },
+            },
+        });
     }
 
-    remove(id: number) {
-        return `This action removes a #${id} book`;
+    public async deleteByUUID(uuid: string) {
+        return await this.prisma.books.delete({
+            where: { UUID: uuid },
+        });
     }
 }
