@@ -37,14 +37,31 @@ export class BorrowsService {
     }
 
     public async getByUUID(uuid: string) {
-        return `This action returns a #${uuid} borrow`;
+        return await this.prisma.borrows.findUnique({
+            where: {
+                UUID: uuid,
+            },
+        });
     }
 
-    updateByUUID(uuid: string, updateBorrowDto: UpdateBorrowDto) {
-        return `This action updates a #${uuid} borrow`;
+    public async updateByUUID(uuid: string, updateBorrowDto: UpdateBorrowDto) {
+        return await this.prisma.borrows.update({
+            where: {
+                UUID: uuid,
+            },
+            data: {
+                status: updateBorrowDto.status,
+                started_at: updateBorrowDto.started_at,
+                end_at: updateBorrowDto.end_at,
+            },
+        });
     }
 
-    deletebyUUID(uuid: string) {
-        return `This action removes a #${uuid} borrow`;
+    public async deletebyUUID(uuid: string) {
+        return await this.prisma.borrows.delete({
+            where: {
+                UUID: uuid,
+            },
+        });
     }
 }
