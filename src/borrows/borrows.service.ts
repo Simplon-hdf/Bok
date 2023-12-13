@@ -35,6 +35,9 @@ export class BorrowsService {
     findAll() {
         return `This action returns all borrows`;
     }
+    findAll() {
+        return `This action returns all borrows`;
+    }
 
     public async getByUUID(uuid: string) {
         return await this.prisma.borrows.findUnique({

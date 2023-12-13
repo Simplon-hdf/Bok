@@ -7,6 +7,15 @@ import {
     Param,
     Delete,
 } from '@nestjs/common';
+import {
+    Controller,
+    Get,
+    Post,
+    Body,
+    Patch,
+    Param,
+    Delete,
+} from '@nestjs/common';
 import { BorrowsService } from './borrows.service';
 import { CreateBorrowDto } from './dto/create-borrow.dto';
 import { UpdateBorrowDto } from './dto/update-borrow.dto';
@@ -14,12 +23,21 @@ import { UpdateBorrowDto } from './dto/update-borrow.dto';
 @Controller('borrows')
 export class BorrowsController {
     constructor(private readonly borrowsService: BorrowsService) {}
+    constructor(private readonly borrowsService: BorrowsService) {}
 
     @Post()
     create(@Body() createBorrowDto: CreateBorrowDto) {
         return this.borrowsService.create(createBorrowDto);
     }
+    @Post()
+    create(@Body() createBorrowDto: CreateBorrowDto) {
+        return this.borrowsService.create(createBorrowDto);
+    }
 
+    @Get()
+    findAll() {
+        return this.borrowsService.findAll();
+    }
     @Get()
     findAll() {
         return this.borrowsService.findAll();
