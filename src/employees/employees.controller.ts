@@ -33,8 +33,10 @@ export class EmployeesController {
         return this.employeesService.updateByUUID(uuid, updateEmployeeDto);
     }
 
-    @Delete(':uuid')
-    remove(@Param('uuid') uuid: string) {
-        return this.employeesService.deleteEmployeeInfoByMail(uuid);
+    @Delete(':Human_Informations_uuid')
+    remove(@Param('Human_Informations_uuid') Human_Informations_uuid: string) {
+        return this.employeesService.deleteEmployeeInfoByUUID(
+            Human_Informations_uuid,
+        );
     }
 }

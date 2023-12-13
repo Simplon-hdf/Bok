@@ -73,10 +73,10 @@ export class AuthorsService {
         return author;
     }
 
-    async delete(uuid: string) {
-        const author = await this.prisma.authors.delete({
+    async delete(Human_Informations_uuid: string) {
+        const author = await this.prisma.humanInformations.delete({
             where: {
-                UUID: uuid,
+                UUID: Human_Informations_uuid,
             },
         });
 
