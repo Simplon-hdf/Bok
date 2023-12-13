@@ -27,16 +27,19 @@ export class BorrowsController {
 
     @Get(':uuid')
     getByUUID(@Param('uuid') id: string) {
-        return this.borrowsService.getByUUID(+id);
+        return this.borrowsService.getByUUID(id);
     }
 
-    @Patch(':id')
-    update(@Param('id') id: string, @Body() updateBorrowDto: UpdateBorrowDto) {
-        return this.borrowsService.update(+id, updateBorrowDto);
+    @Patch(':uuid')
+    updateByUUID(
+        @Param('uuid') id: string,
+        @Body() updateBorrowDto: UpdateBorrowDto,
+    ) {
+        return this.borrowsService.updateByUUID(id, updateBorrowDto);
     }
 
     @Delete(':id')
-    remove(@Param('id') id: string) {
-        return this.borrowsService.remove(+id);
+    delete(@Param('id') id: string) {
+        return this.borrowsService.deletebyUUID(id);
     }
 }
