@@ -28,7 +28,7 @@ export class EmployeesService {
     }
 
     public async getByMail(mail_address: string) {
-        return this.prisma.employees.findUnique({
+        return await this.prisma.employees.findUnique({
             where: {
                 mail_address: mail_address,
             },
@@ -42,7 +42,7 @@ export class EmployeesService {
         uuid: string,
         updateEmployeeDto: UpdateEmployeeDto,
     ) {
-        return this.prisma.employees.update({
+        return await this.prisma.employees.update({
             where: {
                 UUID: uuid,
             },
@@ -59,14 +59,8 @@ export class EmployeesService {
         });
     }
 
-    async deleteEmployeeInfoByMail(Human_Informations_uuid) {
-        await this.prisma.humanInformations.delete({
-            where: {
-                UUID: Human_Informations_uuid,
-            },
-        });
-
-        await this.prisma.employees.delete({
+    async deleteEmployeeInfoByUUID(Human_Informations_uuid: string) {
+        return await this.prisma.humanInformations.delete({
             where: {
                 UUID: Human_Informations_uuid,
             },

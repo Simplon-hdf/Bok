@@ -23,26 +23,26 @@ model Authors {
   UUID String @id(map: "authors_uuid") @unique() @default(uuid()) @db.Char(36)
 
   Books                   Books[]
-  Human_Informations      HumanInformations? @relation(fields: [human_Informations_UUID], references: [UUID])
-  human_Informations_UUID String?            @db.Char(36)
+  Human_Informations      HumanInformations @relation(fields: [human_Informations_UUID], references: [UUID], onDelete: Cascade)
+  human_Informations_UUID String            @db.Char(36)
 }
 
 model Borrowers {
   UUID String @id(map: "borrowers_uuid") @unique() @default(uuid()) @db.Char(36)
 
   borrow                  Borrows[]
-  Human_Informations      HumanInformations? @relation(fields: [human_Informations_UUID], references: [UUID])
-  human_Informations_UUID String?            @db.Char(36)
+  Human_Informations      HumanInformations @relation(fields: [human_Informations_UUID], references: [UUID], onDelete: Cascade)
+  human_Informations_UUID String            @db.Char(36)
 }
 
 model Employees {
   UUID String @id(map: "employees_uuid") @unique() @default(uuid()) @db.Char(36)
 
-  mail_address            String             @unique @db.VarChar(80)
-  password                String             @db.Char(72)
+  mail_address            String            @unique @db.VarChar(80)
+  password                String            @db.Char(72)
   borrow                  Borrows[]
-  Human_Informations      HumanInformations? @relation(fields: [human_Informations_UUID], references: [UUID])
-  human_Informations_UUID String?            @db.Char(36)
+  Human_Informations      HumanInformations @relation(fields: [human_Informations_UUID], references: [UUID], onDelete: Cascade)
+  human_Informations_UUID String            @db.Char(36)
 }
 
 model Books {
@@ -50,8 +50,8 @@ model Books {
   name        String @db.VarChar(40)
   description String @db.VarChar(500)
 
-  borrow_UUID String
-  borrow      Borrows @relation(fields: [borrow_UUID], references: [UUID])
+  borrow_UUID String?
+  borrow      Borrows? @relation(fields: [borrow_UUID], references: [UUID])
 
   author       Authors @relation(fields: [authors_UUID], references: [UUID])
   authors_UUID String  @db.Char(36)
