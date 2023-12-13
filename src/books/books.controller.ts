@@ -20,23 +20,24 @@ export class BooksController {
         return this.booksService.create(createBookDto);
     }
 
-    @Get()
+    @Get('list')
     findAll() {
         return this.booksService.findAll();
     }
+    // TODO: rajouter status du livre
 
     @Get(':uuid')
-    findUnique(@Param('uuid') id: string) {
-        return this.booksService.getByUUID(id);
+    getByUUID(@Param('uuid') uuid: string) {
+        return this.booksService.getByUUID(uuid);
     }
 
     @Patch(':uuid')
-    update(@Param('id') id: string, @Body() updateBookDto: UpdateBookDto) {
-        return this.booksService.updateByUUID(id, updateBookDto);
+    update(@Param('uuid') uuid: string, @Body() updateBookDto: UpdateBookDto) {
+        return this.booksService.updateByUUID(uuid, updateBookDto);
     }
 
     @Delete(':uuid')
-    remove(@Param('id') id: string) {
-        return this.booksService.delete(+id);
+    deleteByUUID(@Param('uuid') uuid: string) {
+        return this.booksService.deleteByUUID(uuid);
     }
 }
