@@ -37,6 +37,25 @@ export class BooksService {
         });
     }
 
+    public async findByKeywords(keywords: string) {
+        return await this.prisma.books.findMany({
+            where: {
+                OR: [
+                    {
+                        name: {
+                            search: keywords,
+                        },
+                    },
+                    {
+                        description: {
+                            search: keywords,
+                        },
+                    },
+                ],
+            },
+        });
+    }
+
     public async updateByUUID(uuid: string, updateBookDto: UpdateBookDto) {
         return await this.prisma.books.update({
             where: { UUID: uuid },
