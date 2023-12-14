@@ -23,23 +23,28 @@ export class BorrowsService {
                         UUID: createBorrowDto.employees_UUID,
                     },
                 },
-
-                status: createBorrowDto.status,
-                started_at: new Date(),
+                Books: {
+                    connect: {
+                        UUID: createBorrowDto.books_UUID,
+                    },
+                },
                 end_at: End_At,
             },
         });
         return createBorrow;
     }
 
-    findAll() {
-        return `This action returns all borrows`;
+    public async findAll() {
+        return await this.prisma.borrows.findMany;
     }
 
     public async getByUUID(uuid: string) {
         return await this.prisma.borrows.findUnique({
             where: {
                 UUID: uuid,
+            },
+            include: {
+                Books: true,
             },
         });
     }
@@ -50,9 +55,16 @@ export class BorrowsService {
                 UUID: uuid,
             },
             data: {
-                status: updateBorrowDto.status,
-                started_at: updateBorrowDto.started_at,
-                end_at: updateBorrowDto.end_at,
+                Books: updateBorrowDto.book_UUID
+                    ? {
+                          connect: { UUID: updateBorrowDto.book_UUID },
+                      }
+                    : undefined,
+                borrower: updateBorrowDto.borrowers_UUID
+                    ? {
+                          connect: { UUID: updateBorrowDto.borrowers_UUID },
+                      }
+                    : undefined,
             },
         });
     }
