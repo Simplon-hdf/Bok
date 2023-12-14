@@ -10,8 +10,10 @@ import {
 import { BorrowsService } from './borrows.service';
 import { CreateBorrowDto } from './dto/create-borrow.dto';
 import { UpdateBorrowDto } from './dto/update-borrow.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('borrows')
+@ApiTags('Borrows')
 export class BorrowsController {
     constructor(private readonly borrowsService: BorrowsService) {}
 
