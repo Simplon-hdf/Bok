@@ -22,7 +22,11 @@ Ce repo contient le code source de l'API de notre médiathèque "Bok".
 
 Notre API permet :
 
-TODO
+-   Gérer les employés (http://localhost:4000/api#/Employees)
+-   Gérer les emprunteurs (http://localhost:4000/api#/Borrowers)
+-   Gérer les livres (http://localhost:4000/api#/Books)
+-   Gérer les auteurs (http://localhost:4000/api#/Authors)
+-   Gérer les emprunts (http://localhost:4000/api#/Borrows)
 
 Notre API est consommable via HTTP (ou HTTPS si un certificat SSL est installé), en utilisant les verbes HTTP adéquoits (`GET`, `POST`, `PATCH`, `DELETE`).
 
@@ -76,7 +80,7 @@ Exécuter le serveur :
 
 La documentation complète de l'API (générée par [Swagger](https://docs.nestjs.com/openapi/introduction)) est disponible à cette adresse :
 
-    http://localhost:3000/api
+    http://localhost:4000/api
 
 > [!NOTE]
 > Le serveur de l'API doit être démarré pour pouvoir accéder à la documentation
