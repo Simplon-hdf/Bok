@@ -7,6 +7,15 @@ import {
     Param,
     Delete,
 } from '@nestjs/common';
+import {
+    Controller,
+    Get,
+    Post,
+    Body,
+    Patch,
+    Param,
+    Delete,
+} from '@nestjs/common';
 import { BorrowsService } from './borrows.service';
 import { CreateBorrowDto } from './dto/create-borrow.dto';
 import { UpdateBorrowDto } from './dto/update-borrow.dto';
@@ -14,7 +23,12 @@ import { UpdateBorrowDto } from './dto/update-borrow.dto';
 @Controller('borrows')
 export class BorrowsController {
     constructor(private readonly borrowsService: BorrowsService) {}
+    constructor(private readonly borrowsService: BorrowsService) {}
 
+    @Post()
+    create(@Body() createBorrowDto: CreateBorrowDto) {
+        return this.borrowsService.create(createBorrowDto);
+    }
     @Post()
     create(@Body() createBorrowDto: CreateBorrowDto) {
         return this.borrowsService.create(createBorrowDto);
@@ -24,19 +38,26 @@ export class BorrowsController {
     findAll() {
         return this.borrowsService.findAll();
     }
-
-    @Get(':id')
-    findOne(@Param('id') id: string) {
-        return this.borrowsService.findOne(+id);
+    @Get()
+    findAll() {
+        return this.borrowsService.findAll();
     }
 
-    @Patch(':id')
-    update(@Param('id') id: string, @Body() updateBorrowDto: UpdateBorrowDto) {
-        return this.borrowsService.update(+id, updateBorrowDto);
+    @Get(':uuid')
+    getByUUID(@Param('uuid') id: string) {
+        return this.borrowsService.getByUUID(id);
+    }
+
+    @Patch(':uuid')
+    updateByUUID(
+        @Param('uuid') id: string,
+        @Body() updateBorrowDto: UpdateBorrowDto,
+    ) {
+        return this.borrowsService.updateByUUID(id, updateBorrowDto);
     }
 
     @Delete(':id')
-    remove(@Param('id') id: string) {
-        return this.borrowsService.remove(+id);
+    delete(@Param('id') id: string) {
+        return this.borrowsService.deletebyUUID(id);
     }
 }
