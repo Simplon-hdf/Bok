@@ -1,0 +1,15 @@
+insert into Borrowers (uuid, first_name, last_name) values ('38f1b318-1231-473b-9973-000a6656559b', 'Janie', 'Suffe');
+insert into Borrowers (uuid, first_name, last_name) values ('15d91e5a-d8dd-40ac-8e9c-0e7b91186762', 'Vidovik', 'Grishenkov');
+insert into Borrowers (uuid, first_name, last_name) values ('88badf5a-87f5-4c25-9276-297b9e59602d', 'Zacherie', 'Peter');
+insert into Borrowers (uuid, first_name, last_name) values ('802f2b5e-b9d4-450f-95ef-fbd2598209fb', 'Lilas', 'Pinder');
+insert into Borrowers (uuid, first_name, last_name) values ('9123eb6a-cb9a-4be8-8388-e6c52c060324', 'Fawne', 'Deverick');
+insert into Borrowers (uuid, first_name, last_name) values ('1dcc43c9-b623-4954-975b-f8ca8c590676', 'Chevy', 'Brownbridge');
+insert into Borrowers (uuid, first_name, last_name) values ('7fa0b1e5-5f8d-402b-bfac-5bede513cd1b', 'Kendal', 'Potkin');
+insert into Borrowers (uuid, first_name, last_name) values ('4ad1805a-bcdc-4757-902c-3bbc8b8a8418', 'Walsh', 'Edgecombe');
+insert into Borrowers (uuid, first_name, last_name) values ('2a4a282b-8d28-429e-a856-27e1ccae1e92', 'Angelika', 'Russell');
+insert into Borrowers (uuid, first_name, last_name) values ('9fbcca47-09a1-4232-8fb7-d1069b3acd09', 'Hube', 'Durrant');
+insert into Borrowers (uuid, first_name, last_name) values ('45933677-1cee-4fc3-be1c-f1de24a092df', 'Phillip', 'McRobert');
+insert into Borrowers (uuid, first_name, last_name) values ('5c3d872d-bf7a-46e9-9e0e-afb810aec6b3', 'Ignazio', 'Chittie');
+insert into Borrowers (uuid, first_name, last_name) values ('562c0c95-c2cc-4591-a340-78d2a0a0c320', 'Guglielmo', 'Buxcy');
+insert into Borrowers (uuid, first_name, last_name) values ('433c34b7-4cea-4617-9e07-488de6906543', 'Bren', 'Oliver-Paull');
+insert into Borrowers (uuid, first_name, last_name) values ('43582590-6e86-4dee-9d12-0726c9b793ae', 'Birch', 'Echalie');
