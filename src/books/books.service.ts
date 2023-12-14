@@ -29,6 +29,14 @@ export class BooksService {
         });
     }
 
+    public async getByAuthorUUID(authorUUID: string) {
+        return await this.prisma.books.findMany({
+            where: {
+                author_UUID: authorUUID,
+            },
+        });
+    }
+
     public async updateByUUID(uuid: string, updateBookDto: UpdateBookDto) {
         return await this.prisma.books.update({
             where: { UUID: uuid },

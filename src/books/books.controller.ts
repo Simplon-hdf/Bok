@@ -36,6 +36,12 @@ export class BooksController {
         return this.booksService.getByUUID(uuid);
     }
 
+    @Get('/author/:uuid')
+    @ApiOperation({ description: 'Get books by author UUID' })
+    getByAuthorUUID(@Param('uuid') authorUUID: string) {
+        return this.booksService.getByAuthorUUID(authorUUID);
+    }
+
     @Patch(':uuid')
     @ApiOperation({ description: 'Update a book by its UUID' })
     update(@Param('uuid') uuid: string, @Body() updateBookDto: UpdateBookDto) {

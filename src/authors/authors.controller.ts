@@ -35,12 +35,6 @@ export class AuthorsController {
         return this.authorsService.getByUUID(uuid);
     }
 
-    @Get(':uuid/books')
-    @ApiOperation({ description: 'Get books of an author by author UUID' })
-    getBooksByAuthorUUID(@Param('uuid') uuid: string) {
-        return this.authorsService.getBooksByAuthorUUID(uuid);
-    }
-
     @Patch(':uuid')
     @ApiOperation({ description: 'Update an author by its UUID' })
     update(
