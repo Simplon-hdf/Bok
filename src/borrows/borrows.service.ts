@@ -15,17 +15,17 @@ export class BorrowsService {
             data: {
                 borrower: {
                     connect: {
-                        UUID: createBorrowDto.borrowers_UUID,
+                        UUID: createBorrowDto.borrower_UUID,
                     },
                 },
                 employee: {
                     connect: {
-                        UUID: createBorrowDto.employees_UUID,
+                        UUID: createBorrowDto.employee_UUID,
                     },
                 },
-                Books: {
+                book: {
                     connect: {
-                        UUID: createBorrowDto.books_UUID,
+                        UUID: createBorrowDto.book_UUID,
                     },
                 },
                 end_at: End_At,
@@ -44,7 +44,7 @@ export class BorrowsService {
                 UUID: uuid,
             },
             include: {
-                Books: true,
+                book: true,
             },
         });
     }
@@ -55,14 +55,14 @@ export class BorrowsService {
                 UUID: uuid,
             },
             data: {
-                Books: updateBorrowDto.book_UUID
+                book: updateBorrowDto.book_UUID
                     ? {
                           connect: { UUID: updateBorrowDto.book_UUID },
                       }
                     : undefined,
-                borrower: updateBorrowDto.borrowers_UUID
+                borrower: updateBorrowDto.borrower_UUID
                     ? {
-                          connect: { UUID: updateBorrowDto.borrowers_UUID },
+                          connect: { UUID: updateBorrowDto.borrower_UUID },
                       }
                     : undefined,
             },

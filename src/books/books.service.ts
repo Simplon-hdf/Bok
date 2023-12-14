@@ -13,7 +13,7 @@ export class BooksService {
                 name: createBookDto.book_name,
                 description: createBookDto.description,
                 author: {
-                    connect: { UUID: createBookDto.authors_UUID },
+                    connect: { UUID: createBookDto.author_UUID },
                 },
             },
         });
@@ -35,9 +35,9 @@ export class BooksService {
             data: {
                 name: updateBookDto.book_name,
                 description: updateBookDto.description,
-                author: updateBookDto.authors_UUID
+                author: updateBookDto.author_UUID
                     ? {
-                          connect: { UUID: updateBookDto.authors_UUID },
+                          connect: { UUID: updateBookDto.author_UUID },
                       }
                     : undefined,
             },

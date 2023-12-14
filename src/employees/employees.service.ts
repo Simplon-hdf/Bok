@@ -12,7 +12,7 @@ export class EmployeesService {
     public async create(createEmployeeDto: CreateEmployeeDto) {
         return await this.prisma.employees.create({
             data: {
-                Human_Informations: {
+                human_informations: {
                     create: {
                         first_name: createEmployeeDto.first_name,
                         last_name: createEmployeeDto.last_name,
@@ -33,7 +33,7 @@ export class EmployeesService {
                 mail_address: mail_address,
             },
             include: {
-                Human_Informations: true,
+                human_informations: true,
             },
         });
     }
@@ -47,7 +47,7 @@ export class EmployeesService {
                 UUID: uuid,
             },
             data: {
-                Human_Informations: {
+                human_informations: {
                     update: {
                         first_name: updateEmployeeDto.first_name,
                         last_name: updateEmployeeDto.last_name,
@@ -59,10 +59,10 @@ export class EmployeesService {
         });
     }
 
-    async deleteEmployeeInfoByUUID(Human_Informations_uuid: string) {
+    async deleteEmployeeInfoByUUID(human_informations_uuid: string) {
         return await this.prisma.humanInformations.delete({
             where: {
-                UUID: Human_Informations_uuid,
+                UUID: human_informations_uuid,
             },
         });
     }

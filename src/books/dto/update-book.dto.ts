@@ -8,14 +8,16 @@ export class UpdateBookDto extends PartialType(CreateBookDto) {
         description: 'This field represents the updated book name',
     })
     book_name?: string;
+
     @IsOptional()
     @ApiProperty({
         description: 'This field represents the updated book description',
     })
     description?: string;
+
     @IsOptional()
     @ApiProperty({
         description: 'This field represents the updated author name',
     })
-    authors_UUID?: string;
+    author_UUID?: string;
 }

@@ -7,5 +7,5 @@ export class UpdateBorrowDto extends PartialType(CreateBorrowDto) {
     book_UUID?: string;
 
     @IsOptional()
-    borrowers_UUID?: string;
+    borrower_UUID?: string;
 }

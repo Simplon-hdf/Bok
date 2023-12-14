@@ -10,7 +10,7 @@ export class AuthorsService {
     async create(createAuthorDto: CreateAuthorDto) {
         const author = await this.prisma.authors.create({
             data: {
-                Human_Informations: {
+                human_informations: {
                     create: {
                         first_name: createAuthorDto.first_name,
                         last_name: createAuthorDto.last_name,
@@ -25,7 +25,7 @@ export class AuthorsService {
     async findAll() {
         const authors = await this.prisma.authors.findMany({
             include: {
-                Human_Informations: true,
+                human_informations: true,
             },
         });
 
@@ -38,7 +38,7 @@ export class AuthorsService {
                 UUID: uuid,
             },
             include: {
-                Human_Informations: true,
+                human_informations: true,
             },
         });
 
@@ -48,7 +48,7 @@ export class AuthorsService {
     async getBooksByAuthorUUID(uuid: string) {
         const books = await this.prisma.books.findMany({
             where: {
-                authors_UUID: uuid,
+                author_UUID: uuid,
             },
         });
 
@@ -58,7 +58,7 @@ export class AuthorsService {
     async update(uuid: string, updateAuthorDto: UpdateAuthorDto) {
         const author = await this.prisma.authors.update({
             data: {
-                Human_Informations: {
+                human_informations: {
                     update: {
                         first_name: updateAuthorDto.first_name,
                         last_name: updateAuthorDto.last_name,
@@ -73,10 +73,10 @@ export class AuthorsService {
         return author;
     }
 
-    async delete(Human_Informations_uuid: string) {
+    async delete(humanInformationsUUID: string) {
         const author = await this.prisma.humanInformations.delete({
             where: {
-                UUID: Human_Informations_uuid,
+                UUID: humanInformationsUUID,
             },
         });
 

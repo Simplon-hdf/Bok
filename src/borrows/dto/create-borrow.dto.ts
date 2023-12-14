@@ -7,19 +7,19 @@ export class CreateBorrowDto {
     })
     @IsUUID()
     @IsNotEmpty()
-    employees_UUID: string;
+    employee_UUID: string;
 
     @ApiProperty({
         description: 'this field represents the borrower uuid',
     })
     @IsUUID()
     @IsNotEmpty()
-    borrowers_UUID: string;
+    borrower_UUID: string;
 
     @ApiProperty({
         description: 'this field represents the book uuid',
     })
     @IsUUID()
     @IsNotEmpty()
-    books_UUID: string;
+    book_UUID: string;
 }
