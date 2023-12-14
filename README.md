@@ -1,6 +1,6 @@
 # API de la médiathèque "Bok"
 
-<!--<img src="./doc/img/logo.png">-->
+<img src="./doc/img/logo.png">
 
 ## Table des matières
 
