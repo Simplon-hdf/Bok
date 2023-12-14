@@ -10,7 +10,7 @@ export class BorrowersService {
     public async create(createBorrowerDto: CreateBorrowerDto) {
         return await this.prisma.borrowers.create({
             data: {
-                Human_Informations: {
+                human_informations: {
                     create: {
                         first_name: createBorrowerDto.first_name,
                         last_name: createBorrowerDto.last_name,
@@ -29,7 +29,7 @@ export class BorrowersService {
             include: {
                 borrow: {
                     include: {
-                        Books: {
+                        book: {
                             select: {
                                 name: true,
                             },
@@ -54,7 +54,7 @@ export class BorrowersService {
                 UUID: uuid,
             },
             data: {
-                Human_Informations: {
+                human_informations: {
                     update: {
                         first_name: updateBorrowerDto.first_name,
                         last_name: updateBorrowerDto.last_name,
@@ -64,10 +64,10 @@ export class BorrowersService {
         });
     }
 
-    public async delete(Human_Informations_uuid) {
+    public async delete(humanInformationsUUID: string) {
         return await this.prisma.borrowers.delete({
             where: {
-                UUID: Human_Informations_uuid,
+                UUID: humanInformationsUUID,
             },
         });
     }
