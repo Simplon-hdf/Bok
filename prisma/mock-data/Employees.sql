@@ -1,0 +1,15 @@
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('0a8c3332-edda-49b6-9102-4448d9b4b4cb', 'Rodie', 'McClean', 'rmcclean0@dedecms.com', 'aX0`Z6@\');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('f46e59cb-5a7c-4744-8e6b-f1fbd8b2a3b0', 'Jerrine', 'McMillan', 'jmcmillan1@gravatar.com', 'wJ3+a$$*ZBM');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('fc7595ac-0db1-44b4-8892-2735338a44e0', 'Jefferson', 'Heap', 'jheap2@php.net', 'zG1?$?q_8we');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('795118fa-13d1-460e-a374-bf21af822a19', 'Ivett', 'Mountlow', 'imountlow3@barnesandnoble.com', 'gS5.8J5AB=PR');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('3c8065b7-ef96-491c-839c-cb6c5e50de66', 'Serge', 'Aysh', 'saysh4@storify.com', 'fD9#?A8sORJiWPDi');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('c3442cbb-a78a-47d0-bfc9-b6c626d6cd4b', 'Hyacintha', 'Hubbucke', 'hhubbucke5@bizjournals.com', 'eL9/"TV%}+d');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('1e17543d-069e-4479-82a9-e399c659c05b', 'Marven', 'Kimmerling', 'mkimmerling6@imgur.com', 'uF8%fpup4S');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('e572ad8a-ac08-42fa-b414-d44c5f0267d1', 'Ardith', 'Harower', 'aharower7@cbslocal.com', 'nY9#ft}n&J(qJk');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('96c0edef-8505-4eef-89fa-8d5a6e5811b6', 'Arty', 'Amsberger', 'aamsberger8@miibeian.gov.cn', 'vF0{|)Z)p8LD6');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('5090bc2b-6249-40da-b9c9-3ea6a6d66578', 'Harri', 'Shatliffe', 'hshatliffe9@ucla.edu', 'fG7@{''dEgU%1');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('99d8c0df-e34b-457b-ac94-1afe0a0d190f', 'Gwynne', 'Karolyi', 'gkarolyia@ihg.com', 'vT6+N$V4');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('c5bd8a4a-69b2-4aaa-961d-72530539d2c0', 'Gorden', 'Ferran', 'gferranb@dyndns.org', 'qN4>Zo~a1r');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('fd6b9275-0334-4eca-bf2a-490e29276663', 'Abbie', 'Wernham', 'awernhamc@netlog.com', 'mA2/Mpwg6$BID5<');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('24656a37-cafa-4809-b1eb-1f3e803c3013', 'Trevar', 'Lambricht', 'tlambrichtd@mayoclinic.com', 'fH0/cBu%vHSS4');
+insert into Employees (uuid, first_name, last_name, mail_address, password) values ('a275ee51-02a0-43f5-8af3-cc8c4b49c456', 'Pauline', 'Noon', 'pnoone@senate.gov', 'uQ6@p1\eL''?5!k');

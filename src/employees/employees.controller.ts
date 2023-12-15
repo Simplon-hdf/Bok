@@ -38,11 +38,9 @@ export class EmployeesController {
         return this.employeesService.updateByUUID(uuid, updateEmployeeDto);
     }
 
-    @Delete(':Human_Informations_uuid')
+    @Delete(':uuid')
     @ApiOperation({ description: 'Delete an employee by its UUID' })
-    remove(@Param('Human_Informations_uuid') Human_Informations_uuid: string) {
-        return this.employeesService.deleteEmployeeInfoByUUID(
-            Human_Informations_uuid,
-        );
+    remove(@Param('uuid') uuid: string) {
+        return this.employeesService.deleteEmployeeInfoByUUID(uuid);
     }
 }

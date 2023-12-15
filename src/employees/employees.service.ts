@@ -59,10 +59,10 @@ export class EmployeesService {
         });
     }
 
-    async deleteEmployeeInfoByUUID(human_informations_uuid: string) {
+    async deleteEmployeeInfoByUUID(uuid: string) {
         return await this.prisma.humanInformations.delete({
             where: {
-                UUID: human_informations_uuid,
+                UUID: uuid,
             },
         });
     }

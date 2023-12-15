@@ -4,73 +4,73 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model HumanInformations {
-    UUID       String      @id(map: "human_informations_uuid") @unique @default(uuid()) @db.Char(36)
-    first_name String      @db.VarChar(20)
-    last_name  String      @db.VarChar(30)
-    author     Authors[]
-    borrow     Borrowers[]
-    employee   Employees[]
+  UUID       String      @id(map: "human_informations_uuid") @unique @default(uuid()) @db.Char(36)
+  first_name String      @db.VarChar(20)
+  last_name  String      @db.VarChar(30)
+  author     Authors[]
+  borrow     Borrowers[]
+  employee   Employees[]
 }
 
 model Authors {
-    UUID String @id(map: "authors_uuid") @unique() @default(uuid()) @db.Char(36)
+  UUID String @id(map: "authors_uuid") @unique() @default(uuid()) @db.Char(36)
 
-    books                   Books[]
-    human_informations      HumanInformations @relation(fields: [human_informations_UUID], references: [UUID], onDelete: Cascade)
-    human_informations_UUID String            @db.Char(36)
+  books                   Books[]
+  human_informations      HumanInformations @relation(fields: [human_informations_UUID], references: [UUID], onDelete: Cascade)
+  human_informations_UUID String            @db.Char(36)
 }
 
 model Borrowers {
-    UUID String @id(map: "borrowers_uuid") @unique() @default(uuid()) @db.Char(36)
+  UUID String @id(map: "borrowers_uuid") @unique() @default(uuid()) @db.Char(36)
 
-    borrow                  Borrows[]
-    human_informations      HumanInformations @relation(fields: [human_informations_UUID], references: [UUID], onDelete: Cascade)
-    human_informations_UUID String            @db.Char(36)
+  borrow                  Borrows[]
+  human_informations      HumanInformations @relation(fields: [human_informations_UUID], references: [UUID], onDelete: Cascade)
+  human_informations_UUID String            @db.Char(36)
 }
 
 model Employees {
-    UUID String @id(map: "employees_uuid") @unique() @default(uuid()) @db.Char(36)
+  UUID String @id(map: "employees_uuid") @unique() @default(uuid()) @db.Char(36)
 
-    mail_address            String            @unique @db.VarChar(80)
-    password                String            @db.Char(72)
-    borrow                  Borrows[]
-    human_informations      HumanInformations @relation(fields: [human_informations_UUID], references: [UUID], onDelete: Cascade)
-    human_informations_UUID String            @db.Char(36)
+  mail_address            String            @unique @db.VarChar(80)
+  password                String            @db.Char(72)
+  borrow                  Borrows[]
+  human_informations      HumanInformations @relation(fields: [human_informations_UUID], references: [UUID], onDelete: Cascade)
+  human_informations_UUID String            @db.Char(36)
 }
 
 model Books {
-    UUID        String @id(map: "books_uuid") @unique() @default(uuid()) @db.Char(36)
-    name        String @db.VarChar(40)
-    description String @db.VarChar(500)
+  UUID        String @id(map: "books_uuid") @unique() @default(uuid()) @db.Char(36)
+  name        String @db.VarChar(40)
+  description String @db.VarChar(500)
 
-    borrow_UUID String?
-    borrow      Borrows? @relation(fields: [borrow_UUID], references: [UUID])
+  borrow_UUID String?
+  borrow      Borrows? @relation(fields: [borrow_UUID], references: [UUID])
 
-    author      Authors @relation(fields: [author_UUID], references: [UUID])
-    author_UUID String  @db.Char(36)
+  author      Authors @relation(fields: [author_UUID], references: [UUID])
+  author_UUID String  @db.Char(36)
 }
 
 model Borrows {
-    UUID       String      @id(map: "borrows_uuid") @unique() @default(uuid()) @db.Char(36)
-    status     BorrowState @default(ONGOING)
-    started_at DateTime    @default(now())
-    end_at     DateTime    @db.Date
+  UUID       String      @id(map: "borrows_uuid") @unique() @default(uuid()) @db.Char(36)
+  status     BorrowState @default(ONGOING)
+  started_at DateTime    @default(now())
+  end_at     DateTime    @db.Date
 
-    employee_UUID String
-    employee      Employees @relation(fields: [employee_UUID], references: [UUID])
+  employee_UUID String
+  employee      Employees @relation(fields: [employee_UUID], references: [UUID])
 
-    borrower_UUID String    @db.Char(36)
-    borrower      Borrowers @relation(fields: [borrower_UUID], references: [UUID])
+  borrower_UUID String    @db.Char(36)
+  borrower      Borrowers @relation(fields: [borrower_UUID], references: [UUID])
 
-    book Books[]
+  book Books[]
 }
 
 enum BorrowState {
-    ONGOING
-    CLOSED
+  ONGOING
+  CLOSED
 }
