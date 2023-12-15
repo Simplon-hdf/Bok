@@ -29,7 +29,7 @@ Notre API permet :
 -   Gérer les emprunts (http://localhost:4000/api#/Borrows)
 
 -   Rechercher des livres par mots-clés (http://localhost:4000/api#/Books/BooksController_findByKeywords)
--   Lister les livres d'un auteur (http://localhost:3000/api#/Books/BooksController_getByAuthorUUID)
+-   Lister les livres d'un auteur (http://localhost:4000/api#/Books/BooksController_getByAuthorUUID)
 
 Notre API est consommable via HTTP (ou HTTPS si un certificat SSL est installé), en utilisant les verbes HTTP adéquoits (`GET`, `POST`, `PATCH`, `DELETE`).
 
