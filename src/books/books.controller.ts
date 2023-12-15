@@ -11,6 +11,7 @@ import { BooksService } from './books.service';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { find } from 'rxjs';
 
 @Controller('books')
 @ApiTags('Books')
@@ -34,6 +35,20 @@ export class BooksController {
     @ApiOperation({ description: 'Get a book by its UUID' })
     getByUUID(@Param('uuid') uuid: string) {
         return this.booksService.getByUUID(uuid);
+    }
+
+    @Get('/author/:uuid')
+    @ApiOperation({ description: 'Get books by author UUID' })
+    getByAuthorUUID(@Param('uuid') authorUUID: string) {
+        return this.booksService.getByAuthorUUID(authorUUID);
+    }
+
+    @Get('/find/:keywords')
+    @ApiOperation({
+        description: 'Find books by keywords (on name and description)',
+    })
+    findByKeywords(@Param('keywords') keywords: string) {
+        return this.booksService.findByKeywords(keywords);
     }
 
     @Patch(':uuid')

@@ -45,16 +45,6 @@ export class AuthorsService {
         return author;
     }
 
-    async getBooksByAuthorUUID(uuid: string) {
-        const books = await this.prisma.books.findMany({
-            where: {
-                author_UUID: uuid,
-            },
-        });
-
-        return books;
-    }
-
     async update(uuid: string, updateAuthorDto: UpdateAuthorDto) {
         const author = await this.prisma.authors.update({
             data: {
